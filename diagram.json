@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "Komal",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": -20.6, "left": 199.2, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -47.4, "left": -144.6, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -114.9,
+      "left": 215.4,
+      "attrs": { "temperature": "61.2", "humidity": "42" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 43.2,
+      "left": 210.65,
+      "rotate": 90,
+      "attrs": { "value": "5000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -118.8,
+      "left": -44.2,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "bb1:4t.c", "uno:8", "green", [ "v0", "h-76.8", "v-105.6", "h-9.6" ] ],
+    [ "bb1:3t.d", "bb1:3b.j", "red", [ "v76.8" ] ],
+    [ "bb1:4b.i", "bb1:4b.j", "red", [ "v0" ] ],
+    [ "bb1:6t.d", "uno:GND.2", "black", [ "v144", "h-240" ] ],
+    [ "bb1:1b.j", "uno:5V", "red", [ "v134.4", "h-192" ] ],
+    [ "dht1:VCC", "bb1:3t.b", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:4t.b", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:5t.b", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:6t.b", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:4t.d", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:4b.h", "", [ "$bb" ] ],
+    [ "uno:GND.1", "led1:C", "black", [ "v-38.4", "h-9.3" ] ],
+    [ "uno:13", "led1:A", "green", [ "v-38.4", "h0.4" ] ]
+  ],
+  "dependencies": {}
+}
